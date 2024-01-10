@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-    @Max(value = 8, message = "id cannot be greater than 8")
+    @Max(value = 9, message = "id cannot be greater than 8")
     private String id;
 @NotBlank(message = "Username is required")
     private String username;
