@@ -8,16 +8,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
+    private CatalogServiceClient catalogServiceClient;
     private final UserService userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, CatalogServiceClient catalogServiceClient) {
+
         this.userService = userService;
+        this.catalogServiceClient = catalogServiceClient;
     }
 
     @PostMapping("/details")
     public String details(@RequestBody User user) {
-        return userService.ackMessage(user);
+        String confirm = catalogServiceClient.someDetails(user);
+        String response = confirm +" "+  userService.ackMessage(user);
+
+        return response;
+
     }
 
 }
