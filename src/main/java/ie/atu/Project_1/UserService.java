@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
     public String ackMessage(User info)
     {
-        String message = "correct " + info.getId()+ info.getUsername() +  info.getPassword() + "Access to songs granted ";
+        String message = "correct details granted ";
         return  message;
     }
 
